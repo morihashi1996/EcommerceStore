@@ -1,0 +1,447 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ِِِ{% block title %}DIBA{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.rtl.min.css"
+          integrity="sha384-+qdLaIRZfNu4cVPK/PxJJEy0B0f3Ugv8i482AKY7gwXwhaCroABd086ybrVKTa0q" crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css"
+          integrity="sha384-zIaWifL2YFF1qaDiAo0JFgsmasocJ/rqu7LKYH8CoBEXqGbb9eO+Xi3s6fQhgFWM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+          integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+          integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="{% static 'owlcarousel/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'owlcarousel/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/sahel-font@v[X.Y.Z]/dist/font-face.css" rel="stylesheet"
+          type="text/css"/>
+    <script src="{% static 'script.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+            integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+            integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="https://kit.fontawesome.com/yourcode.js"></script>
+    <script src="{% static 'owlcarousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'script.js' %}"></script>
+</head>
+<body>
+<div class="w-100"
+     style="height: 40px;background-image: linear-gradient(to right, #532d6b, #7b266f, #a21668, #c40056, #dc143c);">
+</div>
+<div class="sticky-top w-100 bg-white">
+    <div class="w-100 row mt-2">
+        <div class="col-4  align-items-center row mx-0 container">
+            <ul class="row nav-iteam mb-0 align-self-center mx-0">
+                <li class="col-3 p-0" data-bs-toggle="tooltip" data-bs-placement="top" title="اکانت">
+                    {% if not request.user.is_authenticated %}
+                        <a href="#offcanvasExample" data-bs-target="#offcanvasRight" data-bs-toggle="offcanvas"
+                           role="button" aria-controls="offcanvasRight"
+                           class="nav-i"><i class="fas fa-user"></i>
+                        </a>
+                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                             aria-labelledby="offcanvasRightLabel">
+                            <div class="w-100 h-100 g-0">
+                                <div class="w-100 h-50 text-center login-div top-0">
+                                    <main class="form-signin">
+                                        <form class="w-75 mx-auto mt-5" method="post">
+                                            <h1 class="h3 mb-3 fw-bold login-text">Please sign in</h1>
+                                            <div class="form-floating">
+                                                {% csrf_token %}
+                                                {{ login_form }}
+                                            </div>
+                                            <div class="checkbox mb-3">
+                                                <input class="form-check-input login-btn" type="checkbox"
+                                                       id="gridCheck1">
+                                                <label class="form-check-label login-text" for="gridCheck1">
+                                                    Remember me
+                                                </label>
+                                            </div>
+                                            <button class="w-100 btn btn-lg login-btn" type="submit">Sign in</button>
+                                        </form>
+                                    </main>
+                                </div>
+                                <div class="w-100 text-center bg-white h-50 mt-0 login-div2">
+                                    <main class="">
+                                        <form class="w-75 mx-auto mt-5">
+                                            <h1 class="h3 mb-3 fw-bold sign-up-text">Please sign up</h1>
+                                            <p class="sign-up-text">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                elit. Praesentium provident corporis similique!</p>
+                                            <a href="/register" class="w-100 btn btn-lg sign-up-btn" type="button">Sign
+                                                up</a>
+                                        </form>
+                                    </main>
+                                </div>
+                            </div>
+                        </div>
+                    {% else %}
+                        <a href="/account" role="button" class="nav-i">
+                            <i class="fas fa-user"></i>
+                        </a>
+                    {% endif %}
+                </li>
+                <li class="col-3 p-0 position-relative basket" data-bs-toggle="tooltip" data-bs-placement="top"
+                    title="سبد خرید">
+                    <a href="{% url "basket:basket_summary" %}" class="nav-i basket py-2 position-relative"><i
+                            class="fas fa-shopping-bag"></i>
+                        {% with total_qty=basket|length %}
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger fs-6"
+                                  id="basket-qty">
+                                {% if total_qty > 0 %}
+                                    {{ total_qty }}
+                                {% else %}
+                                    0
+                                {% endif %}
+                            </span>
+                        {% endwith %}
+                    </a>
+                    <div class="basket-div bg-white overflow-auto">
+                        <button class="btn btn-lg  sticky-top w-100 text-center basket-top"> go to bask</button>
+                        <ul class="list-group ">
+                            {% for item in basket %}
+                                {% with product=item.product %}
+                                    <li class="list-group-item product-item" data-index="{{ product.id }}">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <img src="{{ product.image }}"
+                                                 alt="" style="height: 100px; width: 100px; ">
+                                            <span class="badge rounded-pill btn-danger me-4 ms-1">{{ item.qty }}</span>
+                                            <a href="{{ product.get_absolute_url }}"
+                                               class="text-nowrap basket-title">{{ product.title }}</a>
+                                            <span class="mx-4 text-nowrap">{{ product.price }} تومان</span>
+                                            <a href="" data-index="{{ product.id }}" class="delete-item"><i
+                                                    class="fas fa-times-circle basket-btn"></i></a>
+                                        </div>
+                                    </li>
+                                {% endwith %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </li>
+                <li class="col-6 p-0 row form-group position-relative nav-search" data-bs-toggle="tooltip"
+                    data-bs-placement="top" title="جستجو">
+                    <!-- <button class="nav-i p-0 col-2 btn-search" onclick="searchShow()"><i class="fas fa-search"></i></button> -->
+                    <!-- <input type="search" class="form-control col input-search" placeholder="Search..." aria-label="Search"> -->
+                    <a href="#" class="nav-i col-2 nav-search"><i class="fas fa-search mt-2"></i></a>
+                    <input type="text" class="input-search position-absolute " placeholder="">
+                </li>
+            </ul>
+        </div>
+        <div class="col-7 text-center row">
+            <h1 class="fw-bolder brand-name align-self-center text-md-end text-start mx-5 px-sm-5"> دیبا</h1>
+            <!-- <span class="brand-title d-none d-sm-block text-md-end d-block">بهترین روش خرید لوازم ارایشی بهداشتی</span> -->
+        </div>
+        <button class="navbar-toggler col d-block d-md-none custom-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarTogglerDemo01" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <hr class="mb-0 mt-1 sticky-top"
+        style="height: 2px; background-image: linear-gradient(to right, #532d6b, #7b266f, #a21668, #c40056, #dc143c);">
+    <nav class="navbar navbar-expand-md  pt-0 pb-2 bg-white">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse navdiv h-auto" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0 mx-auto h-auto pb-2">
+                    <!--  <li class="mx-3 mt-2">
+                        <a class="nav-m pt-2" aria-current="page" href="#">خانه</a>
+                    </li> -->
+                    <li class=" mt-2 mx-3 dropdown has-megamenu">
+                        <a class="nav-m pt-2" href="#" data-bs-toggle="dropdown">بهداشتی</a>
+                        <div class="dropdown-menu megamenu mt-0 py-0" role="menu">
+                            <div class=" menu-div d-flex flex-row w-100 text-center"
+                                 style="background-color: rgb(255, 248, 251);">
+                                <div class="list-group ps-2 pt-2 w-25">
+                                    <h5 class="mt-4 menu-tit">مراقبت از صورت</h5>
+                                    <hr>
+                                    <a href="" class="menu-item mb-2"> کرم دور چشم</a>
+                                    <a href="" class="menu-item mb-2"> لایه بردار</a>
+                                    <a href="" class="menu-item mb-2">ضد چروک و ضد افتادگی</a>
+                                    <a href="" class="menu-item mb-2">ضد لک و روشن کننده</a>
+                                    <a href="" class="menu-item mb-2">ماسک و اسکراب</a>
+                                    <a href="" class="menu-item mb-2">درمان جوش و منافذ باز</a>
+                                    <a href="" class="menu-item mb-2">پاک کننده و شوینده</a>
+                                    <a href="" class="menu-item mb-2">مرطوب کننده</a>
+                                    <a href="" class="menu-item mb-2">ضد افتاب</a>
+                                    <a href="" class="menu-item mb-2">مراقبت از مژه و ابرو</a>
+                                    <a href="" class="menu-item mb-2">مراقبت از لب</a>
+                                </div>
+                                <div class="list-group ps-2 pt-2 w-25">
+                                    <h5 class="mt-4 menu-tit">مراقبت از بدن</h5>
+                                    <hr>
+                                    <a href="" class="menu-item mb-2"> شوینده بدن</a>
+                                    <a href="" class="menu-item mb-2"> لوسیون بدن</a>
+                                    <a href="" class="menu-item mb-2">کرم دست و پا</a>
+                                    <a href="" class="menu-item mb-2">دئودرانت و خوشبو کننده</a>
+                                    <img src="Images/pexels-ron-lach-81408991.jpg"
+                                         class="img-fluid rounded-3 w-100 mx-auto mt-2" alt="">
+                                </div>
+                                <div class="list-group w-25 ps-2 pt-2">
+                                    <h5 class="mt-4 menu-tit">محصولات پوستی و بهداشتی اقایان</h5>
+                                    <hr>
+                                    <a href="" class="menu-item mb-2"> اصلاح صورت و بدن</a>
+                                    <a href="" class="menu-item mb-2">مراقبت از صورت و بدن</a>
+                                    <a href="" class="menu-item mb-2">مراقبت مو</a>
+                                    <a href="" class="menu-item mb-2">سایر محصولات بهداشتی اقایان</a>
+                                </div>
+                                <div class="w-25 h-100">
+                                    <img src="Images/pexels-isa-saa-7512746.jpg" class="img-fluid " alt="">
+                                </div>
+                            </div>
+                        </div> <!-- dropdown-mega-menu.// -->
+                    </li>
+                    <li class="mt-2 mx-3 dropdown has-megamenu">
+                        <a class="nav-m pt-2" href="#" data-bs-toggle="dropdown">آرایشی</a>
+                        <div class="dropdown-menu megamenu mt-0 py-0" role="menu">
+                            <div class=" menu-div d-flex flex-row w-100 text-center"
+                                 style="background-color: rgb(255, 248, 251);">
+                                <div class="list-group ps-2 pt-2 w-25">
+                                    <h5 class="mt-4 menu-tit">ارایش صورت</h5>
+                                    <hr>
+                                    <a href="" class="menu-item mb-2">کانسیلر</a>
+                                    <a href="" class="menu-item mb-2">کرم پودر</a>
+                                    <a href="" class="menu-item mb-2">پرایمر صورت</a>
+                                    <a href="" class="menu-item mb-2">پودر صورت(پنکک)</a>
+                                    <a href="" class="menu-item mb-2">کانتور و هایلایتر</a>
+                                    <a href="" class="menu-item mb-2">فیکساتور آرایش</a>
+                                    <a href="" class="menu-item mb-2">کرم CC,DD,BB</a>
+                                    <a href="" class="menu-item mb-2">رژ گونه</a>
+                                    <img src="Images/pexels-shiny-diamond-3373744.jpg"
+                                         class="img-fluid rounded-3 h-75 w-75 mx-auto mt-2" alt="">
+                                </div>
+                                <div class="list-group ps-2 pt-2 w-25">
+                                    <h5 class="mt-4 menu-tit">آرایش چشم</h5>
+                                    <hr>
+                                    <a href="" class="menu-item mb-2">ریمل</a>
+                                    <a href="" class="menu-item mb-2">پرایمر چشم</a>
+                                    <a href="" class="menu-item mb-2">سایه چشم</a>
+                                    <a href="" class="menu-item mb-2">خط چشم</a>
+                                    <a href="" class="menu-item mb-2">مداد چشم</a>
+                                    <h5 class="mt-4 menu-tit">آرایش ابرو</h5>
+                                    <hr>
+                                    <a href="" class="menu-item mb-2">مداد ابرو</a>
+                                    <a href="" class="menu-item mb-2">سایه ابرو</a>
+                                    <a href="" class="menu-item mb-2">ریمل ابرو</a>
+                                    <a href="" class="menu-item mb-2">ماژیک ابرو</a>
+                                    <a href="" class="menu-item mb-2">ژل ابرو</a>
+                                </div>
+                                <div class="h-100 w-25">
+                                    <img src="Images/pexels-cottonbro-587131211.jpg" class="img-fluid h-100" alt="">
+                                </div>
+                                <div class="list-group ps-2 pt-2 w-25">
+                                    <h5 class="mt-4 menu-tit">آرایش ناخن</h5>
+                                    <hr>
+                                    <a href="" class="menu-item mb-2">لاک</a>
+                                    <a href="" class="menu-item mb-2">بیس ناخن</a>
+                                    <a href="" class="menu-item mb-2">تاپ کات</a>
+                                    <a href="" class="menu-item mb-2">تقویت کننده ناخن</a>
+                                    <a href="" class="menu-item mb-2">لاک پاک کن</a>
+                                    <a href="" class="menu-item mb-2">کوکتل مانیکور پدیکور</a>
+                                    <h5 class="mt-4 menu-tit">آرایش لب</h5>
+                                    <hr>
+                                    <a href="" class="menu-item mb-2">پرایمر لب</a>
+                                    <a href="" class="menu-item mb-2">رژ لب</a>
+                                    <a href="" class="menu-item mb-2">رژ لب مایع</a>
+                                    <a href="" class="menu-item mb-2">ماژیک لب</a>
+                                    <a href="" class="menu-item mb-2">مداد لب</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="mt-2 mx-3 dropdown has-megamenu">
+                        <a class="nav-m pt-2" href="#" data-bs-toggle="dropdown">مو</a>
+                        <div class="dropdown-menu megamenu mt-0 py-0" role="menu">
+                            <div class=" menu-div d-flex flex-row w-100 text-center"
+                                 style="background-color: rgb(255, 255, 255);">
+                                <div class="list-group ps-2 pt-2 w-25">
+                                    <h5 class="mt-4 menu-tit">مراقبت از مو</h5>
+                                    <hr>
+                                    <a href="" class="menu-item mb-2">شامپو</a>
+                                    <a href="" class="menu-item mb-2">نرم کننده مو</a>
+                                    <a href="" class="menu-item mb-2">ماسک مو</a>
+                                    <a href="" class="menu-item mb-2">سرم مو</a>
+                                    <h5 class="mt-4 menu-tit">حالت دهنده مو</h5>
+                                    <hr>
+                                    <a href="" class="menu-item mb-2">ژل مو</a>
+                                    <a href="" class="menu-item mb-2">اسپری مو</a>
+                                </div>
+                                <div class="list-group ps-2 pt-2 w-25">
+                                    <h5 class="mt-4 menu-tit">رنگ مو و ملزمات</h5>
+                                    <hr>
+                                    <a href="" class="menu-item mb-2">کیت رنگ مو</a>
+                                    <a href="" class="menu-item mb-2">رنگ مو</a>
+                                    <a href="" class="menu-item mb-2">اکسیدان</a>
+                                    <a href="" class="menu-item mb-2">دکلره</a>
+                                </div>
+                                <div class="w-50">
+                                    <img src="Images/pexels-cottonbro-7440054.jpg" class="img-fluid h-100" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="mt-2 mx-3 dropdown has-megamenu">
+                        <a class="nav-m pt-2" href="#" data-bs-toggle="dropdown">عطر و خوشبو کننده</a>
+                        <div class="dropdown-menu megamenu mt-0 py-0" role="menu">
+                            <div class=" menu-div d-flex flex-row w-100 text-center"
+                                 style="background-color: rgb(255, 255, 255);">
+                                <a href="" class="fs-1 fw-bolder adu-a adu-div-man">
+                                    <span class=" pb-3 px-3 my-5 mt-5">مردانه</span>
+                                </a>
+                                <a href="" class="fs-1 fw-bolder adu-a adu-a-woman">
+                                    زنانه
+                                </a>
+                                <a href="" class="fs-1 fw-bolder adu-a spty-a">
+                                    اسپری
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="mt-2 mx-3">
+                        <a class="nav-m pt-2" href="#">برند های ما</a>
+                    </li>
+                    <li class="mx-3 mt-2 dropdown has-megamenu">
+                        <a class="nav-m pt-2" href="#" data-bs-toggle="dropdown">ارتباط با ما</a>
+                        <div class="dropdown-menu megamenu mt-0 py-0" role="menu">
+                            <div class=" menu-div d-flex flex-row w-100 text-center"
+                                 style="background-color: rgb(255, 248, 251);">
+                                <div class="w-50">
+                                    <h4>همکاری با ما</h4>
+                                </div>
+                                <div class="w-50">
+                                    <h4>شکایات و پیشنهادات</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<header>
+    <div></div>
+    <div></div>
+</header>
+{% block content %}{% endblock %}
+
+<footer class="" style="background-color: #532D6B;">
+    <div class=" py-5 text-white">
+        <div class="container">
+            <div class="row text-center justify-content-between ">
+                <div class="col-6 col-md-4">
+                    <h3 class="footer-head1">Find out all about good taste and common sense!</h3>
+                    <form>
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <input type="email" class="form-control footer-input" placeholder="ایمیل" id="">
+                            </div>
+                        </div>
+                        <fieldset class="row mb-3">
+                            <div class="col">
+                                <div class="form-check-inline">
+                                    <input class="form-check-input footer-btn" type="radio" name="gridRadios"
+                                           id="gridRadios1"
+                                           value="option1"
+                                           checked>
+                                    <label class="form-check-label footer-contact" for="gridRadios1">
+                                        men
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <input class="form-check-input footer-btn" type="radio" name="gridRadios"
+                                           id="gridRadios2"
+                                           value="option2">
+                                    <label class="form-check-label footer-contact" for="gridRadios2">
+                                        Women
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="row mb-3">
+                            <div class="col-10 offset-sm-2 ">
+                                <div class="form-check ">
+                                    <input class="form-check-input footer-btn" type="checkbox" id="gridCheck1">
+                                    <label class="form-check-label footer-contact" for="gridCheck1">
+                                        I confirm that I am over 16 years old.
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary footer-sign">Sign in</button>
+                    </form>
+                </div>
+                <div class="col-3">
+                    <h5 class="footer-head">SUPPORT AND ASSISTANCE</h5>
+                    <hr>
+                    <P class="footer-contact">Return information</P>
+                    <P class="footer-contact">Return information</P>
+                    <P class="footer-contact">Return information</P>
+                    <P class="footer-contact">Return information</P>
+                    <P class="footer-contact">Return information</P>
+                    <P class="footer-contact">Return information</P>
+                </div>
+                <div class="col-3">
+                    <h5 class="footer-head">SUPPORT AND ASSISTANCE</h5>
+                    <hr>
+                    <P class="footer-contact">Return information</P>
+                    <P class="footer-contact">Return information</P>
+                    <P class="footer-contact">Return information</P>
+                    <h5 class="mt-5 footer-head">SUPPORT AND ASSISTANCE</h5>
+                    <hr>
+                    <P class="footer-contact">Return information</P>
+                    <P class="footer-contact">Return information</P>
+                    <P class="footer-contact">Return information</P>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-white text-dark text-center fs-6 ">
+        <p class="my-2">© 2001 - 2021 Dante International, CUI: 14399840, Reg. Com. J40 / 372/2002</p>
+    </div>
+</footer>
+<script>
+    $(document).on('click', '.delete-item', function (e) {
+        e.preventDefault();
+        var prodid = $(this).data('index');
+        $.ajax({
+            type: 'POST',
+            url: '{% url "basket:basket_delete" %}',
+            data: {
+                productid: $(this).data('index'),
+                csrfmiddlewaretoken: "{{csrf_token}}",
+                action: 'post'
+            },
+            success: function (json) {
+                $('.product-item[data-index="' + prodid + '"]').remove();
+                document.getElementById("subtotal").innerHTML = json.subtotal
+                document.getElementById("basket-qty").innerHTML = json.qty
+            },
+            error: function (xhr, errmsg, err) {
+            }
+        });
+    })
+</script>
+</body>
+</html>

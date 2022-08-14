@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}basket summary{% endblock %}
+{% block content %}
+    <div class="container">
+        <table id="cart" class="table table-hover table-condensed">
+            <thead>
+            <tr>
+                <th style="width:50%">Product</th>
+                <th style="width:10%">Price</th>
+                <th style="width:8%">Quantity</th>
+                <th style="width:22%" class="text-center">Subtotal</th>
+                <th style="width:10%"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in basket %}
+                {% with product=item.product %}
+                    <tr class="product-item" data-index="{{ product.id }}">
+                        <td data-th="Product">
+                            <div class="row">
+                                <div class="col-sm-2 hidden-xs"><img src="{{ product.image }}" alt="..."
+                                                                     class="w-100"/></div>
+                                <div class="col-sm-10">
+                                    <h4 class="nomargin">{{ product.title }}</h4>
+                                    <p>{{ product.discription }}</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td data-th="Price">${{ product.price }}</td>
+                        <td data-th="Quantity">
+                            <label for="select{{ product.id }}">ًQTY</label>
+                            <select id="select{{ product.id }}" class="product-qty-{{ product.id }}">
+                                <option selected>{{ item.qty }}</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </td>
+                        <td data-th="Subtotal" class="text-center">${{ product.price }}</td>
+                        <td class="actions" data-th="">
+                            <button class="btn btn-info btn-sm update-item" data-index="{{ product.id }}">
+                                <i class="fa fa-refresh"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm delete-item" data-index="{{ product.id }}">
+                                <i class="fa fa-trash-o"></i>
+                            </button>
+                        </td>
+                    </tr>
+                {% endwith %}
+            {% endfor %}
+            </tbody>
+            <tfoot>
+            <tr class="visible-xs">
+                <td class="text-center"><strong></strong></td>
+            </tr>
+            <tr>
+                <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+                <td colspan="2" class="hidden-xs"></td>
+                <td class="hidden-xs text-center"><strong id="subtotal">Total $ {{ basket.get_total_price }}</strong></td>
+                <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <script>
+        $(document).on('click', '.delete-item', function (e) {
+            e.preventDefault();
+            var prodid = $(this).data('index');
+            $.ajax({
+                type: 'POST',
+                url: '{% url "basket:basket_delete" %}',
+                data: {
+                    productid: $(this).data('index'),
+                    csrfmiddlewaretoken: "{{csrf_token}}",
+                    action: 'post'
+                },
+                success: function (json) {
+                    $('.product-item[data-index="' + prodid + '"]').remove();
+                    document.getElementById("subtotal").innerHTML = json.subtotal
+                    document.getElementById("basket-qty").innerHTML = json.qty
+                },
+                error: function (xhr, errmsg, err) {
+                }
+            });
+        })
+        $(document).on('click', '.update-item', function (e) {
+            e.preventDefault();
+            var prodid = $(this).data('index');
+            var prodqty = $(".product-qty-"+prodid).val();
+            $.ajax({
+                type: 'POST',
+                url: '{% url "basket:basket_update" %}',
+                data: {
+                    productid: $(this).data('index'),
+                    productqty: prodqty,
+                    csrfmiddlewaretoken: "{{csrf_token}}",
+                    action: 'post'
+                },
+                success: function (json) {
+                    document.getElementById("basket-qty").innerHTML = json.qty
+                    document.getElementById("subtotal").innerHTML = json.subtotal
+                },
+                error: function (xhr, errmsg, err) {
+                }
+            });
+        })
+    </script>
+{% endblock %}

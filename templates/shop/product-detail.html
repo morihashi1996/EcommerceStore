@@ -1,0 +1,350 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ product.title }}{% endblock %}
+{% block content %}
+    <section>
+        <div class="row g-0 mx-3 top-section bg-white">
+            <div class="col-md-4 col-10 col-xxl-3 col-xl-4 ms-4 me-3">
+                <div class="gallery ">
+                    <input type="radio" checked="checked" name="select" id="img-tab-1">
+                    <label for="img-tab-1" style="background-image: url({{ product.image.url }});"></label>
+                    <img src="{{ product.image.url }}" border="0">
+                    <input type="radio" name="select" id="img-tab-2">
+                    <label for="img-tab-2" style="background-image: url(Images/vitamin-c--water-bomb--.jpg);"></label>
+                    <img src="Images/vitamin-c--water-bomb--.jpg" border="0">
+                    <input type="radio" name="select" id="img-tab-3">
+                    <label for="img-tab-3"
+                           style="background-image: url(https://images.unsplash.com/photo-1558981285-501cd9af9426?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60);"></label>
+                    <img src="https://images.unsplash.com/photo-1558981285-501cd9af9426?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+                         border="0">
+                    <input type="radio" name="select" id="img-tab-4">
+                    <label for="img-tab-4"
+                           style="background-image: url(https://images.unsplash.com/photo-1558981001-1995369a39cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60);"></label>
+                    <img src="https://images.unsplash.com/photo-1558981001-1995369a39cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+                         border="0">
+                </div>
+            </div>
+            <div class="col-md-6 col-10 col-xxl-4 col-xl-6 mt-5 ms-4">
+                <div class=" position-relative">
+                    <h1 class="fw-bolder fs-3">تقویت کننده مژه ام تو بیوتی</h1>
+                    <h2 class="fs-6 my-3">{{ product.title }}</h2>
+                    <div>
+                        <strong>دسته بندی:</strong>
+                        <span>
+                        <a href="" class="link-secondary">ارایشی</a>
+                        ,
+                        <a href="" class="link-secondary">مراقبت از صورت</a>
+                        ,
+                        <a href="" class="link-secondary">ارایش چشم</a>
+                    </span>
+                    </div>
+                    <div class="position-absolute end-0 top-0">
+                        <a href="">
+                            <img src="Images/20180202123707M2.jpg" style="width: 100px; height: auto;" alt="">
+                        </a>
+                    </div>
+                </div>
+                <hr class="text-danger">
+                <div class="d-flex flex-row">
+                    <i class="fas fa-star fs-5" style="color: gold;"></i>
+                    <span class="ms-1">3.8</span>
+                    <span class="text-secondary me-1">(523)</span>
+                    *
+                    <a href="" class="mx-2 link-secondary">نظرات322</a>
+                </div>
+                <div class="mt-5 row">
+                    <div class="col-5">
+                        <p class="fw-bold fs-5">ویژگی های محصول</p>
+                        <ul>
+                            <li>تقویت کننده</li>
+                            <li>محرک کننده</li>
+                            <li>پر پشت کننده</li>
+                        </ul>
+                    </div>
+                    <div class="col-7">
+                        <div class="w-auto h-auto py-3 px-4 product-colors">
+                            <div class="row mx-auto">
+                                <div class="col-7" style="background-color: burlywood;"></div>
+                                <span class="col text-end">D11</span>
+                            </div>
+                            <hr class="bg-danger">
+                            <div class="d-flex flex-row justify-content-evenly">
+                                <div>
+                                    <a href="">
+                                        <div class="border rounded-circle" data-bs-toggle="tooltip"
+                                             data-bs-placement="top" title="بنفش"
+                                             style="background-color: blueviolet; height: 30px; width: 30px;"></div>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="">
+                                        <div class="border rounded-circle" data-bs-toggle="tooltip"
+                                             data-bs-placement="top" title="سبز ابی"
+                                             style="background-color: aqua; height: 30px; width: 30px;"></div>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="">
+                                        <div class="border rounded-circle" data-bs-toggle="tooltip"
+                                             data-bs-placement="top" title="فیروزه ای"
+                                             style="background-color: aquamarine; height: 30px; width: 30px;"></div>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="">
+                                        <div class="border rounded-circle" data-bs-toggle="tooltip"
+                                             data-bs-placement="top" title="ابی"
+                                             style="background-color: blue; height: 30px; width: 30px;"></div>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="">
+                                        <div class="border rounded-circle" data-bs-toggle="tooltip"
+                                             data-bs-placement="top" title="قهوه ای"
+                                             style="background-color: brown; height: 30px; width: 30px;"></div>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="">
+                                        <div class="border rounded-circle" data-bs-toggle="tooltip"
+                                             data-bs-placement="top" title="طلایی"
+                                             style="background-color: bisque; height: 30px; width: 30px;"></div>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="">
+                                        <div class="border rounded-circle" data-bs-toggle="tooltip"
+                                             data-bs-placement="top" title="سبز"
+                                             style="background-color: chartreuse; height: 30px; width: 30px;"></div>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="">
+                                        <div class="border rounded-circle" data-bs-toggle="tooltip"
+                                             data-bs-placement="top" title="صورتی"
+                                             style="background-color: deeppink; height: 30px; width: 30px;"></div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="text-center mt-4">مشاهده رنگ های بیشتر +</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-10 col-lg-4  position-relative mx-auto d-flex flex-column mt-5 ">
+                <div>
+                    <div class=" end-0">
+                        <div id="timer">
+                            <div class="number-list">
+                                <div class="item" data-days="">00</div>
+                                <div class="item" data-hours="">00</div>
+                                <div class="item" data-minutes="">00</div>
+                                <div class="item" data-seconds="">00</div>
+                            </div>
+                            <div class="unit-list">
+                                <div class="item">Day</div>
+                                <div class="item">Hour</div>
+                                <div class="item">Minutes</div>
+                                <div class="item">Seconds</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-row-reverse mt-3">
+                    <a href="" class="w-25 fs-2 text-danger" data-bs-toggle="tooltip" data-bs-placement="top"
+                       title="کپی لیتک"><i class="fas fa-share-alt"></i></a>
+                    <a href="" class="w-25 fs-2 text-success" data-bs-toggle="tooltip" data-bs-placement="top"
+                       title="اشتراک در واتس اپ"><i class="fab fa-whatsapp"></i></a>
+                    <a href="" class="w-25 fs-2" data-bs-toggle="tooltip" data-bs-placement="top"
+                       title="اشتراک در تلگرام"><i class="fab fa-telegram"></i></a>
+                </div>
+                <div class="row mt-3 text-center mt-auto">
+                    <div><s class="product-oldprice mt-1 w-50 align-self-end fs-5">70.000 تومان</s></div>
+                    <div class="mt-2">
+                        <span class="product-newprice  mt-1 w-50 align-self-start fs-3 mx-2">{{ product.price }}</span>
+                        <span class="badge rounded btn-danger align-self-center fs-5">20%</span>
+                    </div>
+                </div>
+                <div class="mt-auto top-0 d-flex flex-row align-items-stretch justify-content-evenly">
+{#                    <div class="num-block skin-1 my-auto p-3 border border-3 border-danger rounded-2">#}
+{#                        <div class="num-in">#}
+{#                            <span class="minus dis"></span>#}
+{#                            <input type="text" class="in-num" value="1" readonly="">#}
+{#                            <span class="plus"></span>#}
+{#                        </div>#}
+{#                    </div>#}
+                    <div class="num-block skin-1 my-auto p-3 border border-3 border-danger rounded-2">
+                        <label for="select">qty</label>
+                        <select id="select">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-outline-light btn-danger my-1 makeup-but p-3" type="button" id="add-to-bask" value="{{ product.id }}">اضافه به سبد خرید</button>
+                </div>
+            </div>
+        </div>
+        <div class=" bot-section bg-white mt-4 mx-3 ">
+            <div class=" row text-center mb-3" id="Bot-link">
+                <a class="product-tabs fs-5 col-6 col-md-3 fw-bold py-2 actived" onclick="show('Section1');"><i
+                        class="fas fa-book-open mx-2"></i>توضیحات محصول</a>
+                <a class="product-tabs fs-5 col-6 col-md-3 fw-bold py-2" onclick="show('Section2');"><i
+                        class="fas fa-list mx-2"></i>مشخصات محصول</a>
+                <a class="product-tabs fs-5 col-6 col-md-3 fw-bold py-2" onclick="show('Section3');"><i
+                        class="fas fa-info mx-2"></i>راهنمای استفاده</a>
+                <a class="product-tabs fs-5 col-6 col-md-3 fw-bold py-2" onclick="show('Section4');"><i
+                        class="fas fa-comments mx-2"></i>نظرات کاربران</a>
+            </div>
+            <br>
+            <div id="Section1">
+                <p class="fw-bolder fs-5">توضیحات:</p>
+                <p class="">{{ product.description }}</p>
+            </div>
+            <div id="Section2" style="display: none;">
+                <table class="table table-striped table-hover">
+                    <tbody>
+                    <tr class="p-table">
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                    <tr class="p-table">
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                    <tr class="p-table">
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="Section3" style="display: none;">
+                <p class="fs-5">طرز صحیح لاک زدن 1.ابتدا ناخن هایتان را با وسایل ترمیم ناخن، مانیکور کرده و از صاف و
+                    یکدست بودن آن ها اطمینان حاصل کنید. 2.می توانید با یک لایه بیس کت یا تقویت کننده ناخن کار خود را
+                    شروع کنید. 3.یک قطره لاک در ناحیه پایینی صدف ناخن قرار دهید و سپس آن را به سمت بالا بکشید. 4.سپس لکه
+                    را به سمت بالا هدایت کنید و همین روند را برای سمت دیگر تکرار کنید. 5.می توانید برای براق شدن و
+                    افزایش ماندگاری لاک از یک تاپ کت استفاده کنید.</p>
+            </div>
+            <div id="Section4" style="display: none;">
+                <div oncontextmenu='return false' class='snippet-body'>
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-5 col-md-6 col-12 pb-4">
+                                    <h1 style="color: #532D6B">Comments</h1>
+                                    <div class="comment mt-4 text-justify float-left">
+                                        <h4>Jhon Doe</h4> <span>- 20 October, 2018</span> <br>
+                                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam
+                                            assumenda hic aliquam vero sequi velit molestias doloremque molestiae
+                                            dicta?</p>
+                                    </div>
+                                    <div class="text-justify comment mt-4 float-right">
+                                        <h4>Rob Simpson</h4> <span>- 20 October, 2018</span> <br>
+                                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam
+                                            assumenda hic aliquam vero sequi velit molestias doloremque molestiae
+                                            dicta?</p>
+                                    </div>
+                                    <div class="comment mt-4 text-justify">
+                                        <h4>Jhon Doe</h4> <span>- 20 October, 2018</span> <br>
+                                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam
+                                            assumenda hic aliquam vero sequi velit molestias doloremque molestiae
+                                            dicta?</p>
+                                    </div>
+                                    <div class="comment mt-4 text-justify">
+                                        <h4>Rob Simpson</h4> <span>- 20 October, 2018</span> <br>
+                                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam
+                                            assumenda hic aliquam vero sequi velit molestias doloremque molestiae
+                                            dicta?</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
+                                    <form id="algin-form">
+                                        <div class="form-group">
+                                            <h4 style="color: #532D6B">Leave a comment</h4> <label
+                                                for="message">Message</label> <textarea name="msg" id="" msg cols="30"
+                                                                                        rows="5"
+                                                                                        class="form-control"></textarea>
+                                        </div>
+                                        <div class="form-group pt-1"><label for="name">Name</label> <input type="text"
+                                                                                                           name="name"
+                                                                                                           id="fullname"
+                                                                                                           class="form-control">
+                                        </div>
+                                        <div class="form-group pt-1"><label for="email">Email</label> <input type="text"
+                                                                                                             name="email"
+                                                                                                             id="email"
+                                                                                                             class="form-control">
+                                        </div>
+                                        <div class="form-group pt-1">
+                                            <p style="color: #532D6B">If you have a <a href="#"
+                                                                                       class="link-danger text-danger">gravatar
+                                                account</a> your address will be used to display your profile picture.
+                                            </p>
+                                        </div>
+                                        <div class="form-inline"><input type="checkbox" name="check" id="checkbx"
+                                                                        class="mr-1"> <label for="subscribe">Subscribe
+                                            me to
+                                            the newlettter</label></div>
+                                        <div class="form-group">
+                                            <button type="button" id="post" class="btn">Post Comment</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        var divs = ["Section1", "Section2", "Section3", "Section4"];
+        var visibleId = null;
+        function show(id) {
+            if(visibleId !== id) {
+                visibleId = id;
+            }
+            hide();
+        }
+        function hide() {
+            var div, i, id;
+                for(i = 0; i < divs.length; i++) {
+                    id = divs[i];
+                    div = document.getElementById(id);
+                        if(visibleId === id) {
+                        div.style.display = "block";
+                } else {
+                    div.style.display = "none";
+                }
+            }
+        }
+        var btnContainer = document.getElementById("Bot-link");
+        var btns = btnContainer.getElementsByClassName("product-tabs");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function() {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+        $(document).on('click','#add-to-bask', function (e){
+            e.preventDefault();
+            $.ajax({
+                type:'POST',
+                url: '{% url "basket:basket_add" %}',
+                data:{
+                    productid : $('#add-to-bask').val(),
+                    productqty: $('#select option:selected').text(),
+                    csrfmiddlewaretoken: '{{csrf_token}}',
+                    action:'post'
+                },
+                success:function (json){
+                    document.getElementById("basket-qty").innerHTML = json.qty
+                },
+                error : function (xhr, errmsg, err) {}
+            });
+        })
+    </script>
+{% endblock %}
