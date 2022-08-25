@@ -1,1 +1,645 @@
-dashboard
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+    <div class="row w-100 m-0">
+        <nav id="navbar-example3" class="navbar p-0 col-3 flex-wrap justify-content-center align-content-between">
+            <nav class="nav nav-pills flex-col mt-5 navacc-section bg-white">
+                <a class="nav-link product-tabs acc-text py-3" href="#item-1">سفارشات</a>
+                <a class="nav-link product-tabs acc-text py-3" href="#item-2">نظرات</a>
+                <a class="nav-link product-tabs acc-text py-3" href="#item-3">کد های تخفیف</a>
+                <a class="nav-link product-tabs acc-text py-3" href="#item-4">اطلاعات کاربری</a>
+            </nav>
+            {% if user_form.is_valid %}
+                <div class="alert" role="alert">
+                    success
+                </div>
+            {% endif %}
+            {% if user_form.errors %}
+                <div class="alert" role="alert">
+                    lkmlkm
+                </div>
+
+            {% endif %}
+        </nav>
+        <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-offset="0" tabindex="0"
+             class="col-9 p-0 overflow-auto acc-div" style="height: 800px;">
+            <div class="bg-fix-account">
+            </div>
+            <div class="me-5 ms-2">
+                <div id="item-1">
+                    <div class=" bot-section bg-white mt-4 mx-3 ">
+                        <h3 class="mb-5 pb-3 fs-2 fw-bold">سفارشات</h3>
+                        <div class=" row text-center mb-3" id="Bot-link">
+                            <a class="product-tabs acc-text col-6 col-md-3 fw-bold py-2 actived"
+                               onclick="show('Section1');">جاری <span class="badge bg-danger ms-2">2</span></a>
+                            <a class="product-tabs  acc-text col-6 col-md-3 fw-bold py-2" onclick="show('Section2');">تخویل
+                                شده <span class="badge bg-danger ms-2">2</span></a>
+                            <a class="product-tabs  acc-text col-6 col-md-3 fw-bold py-2" onclick="show('Section3');">مرجوع
+                                شده <span class="badge bg-danger ms-2">2</span></a>
+                            <a class="product-tabs  acc-text col-6 col-md-3 fw-bold py-2" onclick="show('Section4');">لغو
+                                شده <span class="badge bg-danger ms-2">2</span></a>
+                        </div>
+                        <br>
+                        <div id="Section1">
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
+                                <div class="col product-item px-2 my-4">
+                                    <div class="product-img">
+                                        <img class="img-fluid d-block mx-auto" src="Images/collagen-water-bomb-.jpg"
+                                             alt="">
+                                        <img class="img-fluid mx-auto overlay" src="Images/vitamin-c--water-bomb--.jpg"
+                                             alt="">
+                                        <div class="row btns w-100 mx-auto text-center">
+                                            <button type="button" class="col-12 product-bt">
+                                                <i class="">اضافه به سبد خرید</i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="product-info p-3 text-center">
+                                        <span class="product-type ">شامپو مخصوص موهای خشک</span>
+                                        <div class="row my-2">
+                                            <a href="#" class="col-6 text-decoration-none product-brand">برند </a>
+                                            <span class="col-6 product-v ">350ml</span>
+                                        </div>
+                                        <div class="row ">
+                                            <span class="product-newprice mt-1 w-50 col align-self-start">70.000 تومان</span>
+                                            <span class="badge rounded btn-danger w-25 col align-self-center">20%</span>
+                                            <s class="product-oldprice mt-1 w-50 col align-self-end">70.000 تومان</s>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="Section2" style="display: none;">
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
+                                <div class="col product-item px-2 my-4">
+                                    <div class="product-img">
+                                        <img class="img-fluid d-block mx-auto" src="Images/collagen-water-bomb-.jpg"
+                                             alt="">
+                                        <img class="img-fluid mx-auto overlay" src="Images/vitamin-c--water-bomb--.jpg"
+                                             alt="">
+                                        <div class="row btns w-100 mx-auto text-center">
+                                            <button type="button" class="col-12 product-bt">
+                                                <i class="">اضافه به سبد خرید</i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="product-info p-3 text-center">
+                                        <span class="product-type ">شامپو مخصوص موهای خشک</span>
+                                        <div class="row my-2">
+                                            <a href="#" class="col-6 text-decoration-none product-brand">برند </a>
+                                            <span class="col-6 product-v ">350ml</span>
+                                        </div>
+                                        <div class="row ">
+                                            <span class="product-newprice mt-1 w-50 col align-self-start">70.000 تومان</span>
+                                            <span class="badge rounded btn-danger w-25 col align-self-center">20%</span>
+                                            <s class="product-oldprice mt-1 w-50 col align-self-end">70.000 تومان</s>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="Section3" style="display: none;">
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
+                                <div class="col product-item px-2 my-4">
+                                    <div class="product-img">
+                                        <img class="img-fluid d-block mx-auto" src="Images/collagen-water-bomb-.jpg"
+                                             alt="">
+                                        <img class="img-fluid mx-auto overlay" src="Images/vitamin-c--water-bomb--.jpg"
+                                             alt="">
+                                        <div class="row btns w-100 mx-auto text-center">
+                                            <button type="button" class="col-12 product-bt">
+                                                <i class="">اضافه به سبد خرید</i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="product-info p-3 text-center">
+                                        <span class="product-type ">شامپو مخصوص موهای خشک</span>
+                                        <div class="row my-2">
+                                            <a href="#" class="col-6 text-decoration-none product-brand">برند </a>
+                                            <span class="col-6 product-v ">350ml</span>
+                                        </div>
+                                        <div class="row ">
+                                            <span class="product-newprice mt-1 w-50 col align-self-start">70.000 تومان</span>
+                                            <span class="badge rounded btn-danger w-25 col align-self-center">20%</span>
+                                            <s class="product-oldprice mt-1 w-50 col align-self-end">70.000 تومان</s>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="Section4" style="display: none;">
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
+                                <div class="col product-item px-2 my-4">
+                                    <div class="product-img">
+                                        <img class="img-fluid d-block mx-auto" src="Images/collagen-water-bomb-.jpg"
+                                             alt="">
+                                        <img class="img-fluid mx-auto overlay" src="Images/vitamin-c--water-bomb--.jpg"
+                                             alt="">
+                                        <div class="row btns w-100 mx-auto text-center">
+                                            <button type="button" class="col-12 product-bt">
+                                                <i class="">اضافه به سبد خرید</i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="product-info p-3 text-center">
+                                        <span class="product-type ">شامپو مخصوص موهای خشک</span>
+                                        <div class="row my-2">
+                                            <a href="#" class="col-6 text-decoration-none product-brand">برند </a>
+                                            <span class="col-6 product-v ">350ml</span>
+                                        </div>
+                                        <div class="row ">
+                                            <span class="product-newprice mt-1 w-50 col align-self-start">70.000 تومان</span>
+                                            <span class="badge rounded btn-danger w-25 col align-self-center">20%</span>
+                                            <s class="product-oldprice mt-1 w-50 col align-self-end">70.000 تومان</s>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="item-2">
+                    <div class="bot-section bg-white mt-4 mx-3 d-flex flex-col align-content-between">
+                        <h3 class="mb-5 pb-3 fs-2 fw-bold">نظرات</h3>
+                        <div class="commentacc text-justify float-left mb-3 text-white">
+                            <h4>Jhon Doe</h4> <span>- 20 October, 2018</span> <br>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam
+                                assumenda </p>
+                        </div>
+                        <div class="commentacc text-justify float-left text-white">
+                            <h4>Jhon Doe</h4> <span>- 20 October, 2018</span> <br>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="item-3">
+                    <div class=" bot-section bg-white mt-4 mx-3 ">
+                        <h3 class="mb-5 pb-3 fs-2 fw-bold">کد های تخفیف</h3>
+                        <div class=" row text-center mb-3" id="Bot-link">
+                            <a class="product-tabs fs-5 col-6 col-md-3 fw-bold py-2 actived" onclick="show('Off1');">فعال
+                                <span class="badge bg-danger ms-2">2</span></a>
+                            <a class="product-tabs fs-5 col-6 col-md-3 fw-bold py-2" onclick="show('Off2');">غیر فعال
+                                <span class="badge bg-danger ms-2">2</span></a>
+                            <a class="product-tabs fs-5 col-6 col-md-3 fw-bold py-2" onclick="show('Off3');">استفاده شده
+                                <span class="badge bg-danger ms-2">2</span></a>
+                        </div>
+                        <br>
+                        <div id="Off1">
+                            <section id="labelscards">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-4 col-lg-3">
+                                            <div class="dl">
+                                                <div class="brand">
+                                                    <h2 class="fs-3">کارت شماره1 </h2>
+                                                </div>
+                                                <div class="discount alizarin">30%
+                                                    <div class="type">off</div>
+                                                </div>
+                                                <div class="descr">
+                                                    <strong>Mei mucius gloriatur reprimique mollis.</strong>
+                                                </div>
+                                                <div class="ends">
+                                                    <small>1400/03/12</small>
+                                                </div>
+                                                <div class="coupon midnight-blue">
+                                                    <p class="code fw-bold">LYY52Y</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4 col-lg-3">
+                                            <div class="dl">
+                                                <div class="brand">
+                                                    <h2 class="fs-3">کارت شماره1 </h2>
+                                                </div>
+                                                <div class="discount alizarin">30%
+                                                    <div class="type">off</div>
+                                                </div>
+                                                <div class="descr">
+                                                    <strong>Mei mucius gloriatur reprimique mollis.</strong>
+                                                </div>
+                                                <div class="ends">
+                                                    <small>1400/03/12</small>
+                                                </div>
+                                                <div class="coupon midnight-blue">
+                                                    <p class="code fw-bold">LYY52Y</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div id="Off2" style="display: none;">
+                            <section id="labelscards">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-3">
+                                            <div class="dl">
+                                                <div class="brand">
+                                                    <h2>کارت شماره1 </h2>
+                                                </div>
+                                                <div class="discount alizarin">30%
+                                                    <div class="type">off</div>
+                                                </div>
+                                                <div class="descr">
+                                                    <strong>Mei mucius gloriatur reprimique mollis.</strong>
+                                                </div>
+                                                <div class="ends">
+                                                    <small>1400/03/12</small>
+                                                </div>
+                                                <div class="coupon midnight-blue">
+                                                    <p class="code fs-3 fw-bold">LYY52Y</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-3">
+                                            <div class="dl">
+                                                <div class="brand">
+                                                    <h2>کارت شماره1 </h2>
+                                                </div>
+                                                <div class="discount alizarin">30%
+                                                    <div class="type">off</div>
+                                                </div>
+                                                <div class="descr">
+                                                    <strong>Mei mucius gloriatur reprimique mollis.</strong>
+                                                </div>
+                                                <div class="ends">
+                                                    <small>1400/03/12</small>
+                                                </div>
+                                                <div class="coupon midnight-blue">
+                                                    <p class="code fs-3 fw-bold">LYY52Y</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div id="Off3" style="display: none;">
+                            <section id="labelscards">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-3">
+                                            <div class="dl">
+                                                <div class="brand">
+                                                    <h2>کارت شماره1 </h2>
+                                                </div>
+                                                <div class="discount alizarin">30%
+                                                    <div class="type">off</div>
+                                                </div>
+                                                <div class="descr">
+                                                    <strong>Mei mucius gloriatur reprimique mollis.</strong>
+                                                </div>
+                                                <div class="ends">
+                                                    <small>1400/03/12</small>
+                                                </div>
+                                                <div class="coupon midnight-blue">
+                                                    <p class="code fs-3 fw-bold">LYY52Y</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-3">
+                                            <div class="dl">
+                                                <div class="brand">
+                                                    <h2>کارت شماره1 </h2>
+                                                </div>
+                                                <div class="discount alizarin">30%
+                                                    <div class="type">off</div>
+                                                </div>
+                                                <div class="descr">
+                                                    <strong>Mei mucius gloriatur reprimique mollis.</strong>
+                                                </div>
+                                                <div class="ends">
+                                                    <small>1400/03/12</small>
+                                                </div>
+                                                <div class="coupon midnight-blue">
+                                                    <p class="code fs-3 fw-bold">LYY52Y</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <div id="item-4">
+                    <div class="bot-section bg-white mt-4 mx-3 row justify-content-evenly pt-5">
+                        <div class="col-12 col-md-5">
+                            <div class="d-flex flex-row justify-content-between">
+                                <figure class="">
+                                    <figcaption class="blockquote-footer fw-bold">
+                                        نام و نام خانوادگی
+                                    </figcaption>
+                                    <blockquote class="blockquote fw-bold acc-text ">
+                                        <p>مرتضی هاشم ابادی</p>
+                                    </blockquote>
+                                </figure>
+                                <button type="button" class="btn pt-0 shadow-none" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop"><i
+                                        class="fa-solid fa-pen fs-4 text-secondary"></i></button>
+                            </div>
+                            <hr class="mb-5 acc-table" style="height: 2px;">
+                            <div class="d-flex flex-row justify-content-between mt-4 h-25">
+                                <figure class="">
+                                    <figcaption class="blockquote-footer fw-bold">
+                                        شماره موبایل
+                                    </figcaption>
+                                    <blockquote class="blockquote fw-bold">
+                                        <p>09309156835</p>
+                                    </blockquote>
+                                </figure>
+                                <button type="button" class="btn pt-0 shadow-none" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdropphone"><i
+                                        class="fa-solid fa-pen fs-4 text-secondary"></i></button>
+                            </div>
+                            <hr class="mb-5 acc-table" style="height: 2px;">
+                            <div class="d-flex flex-row justify-content-between mt-4">
+                                <figure class="">
+                                    <figcaption class="blockquote-footer fw-bold">
+                                        رمز عبور
+                                    </figcaption>
+                                    <blockquote class="blockquote fw-bold">
+                                        <p>***********</p>
+                                    </blockquote>
+                                </figure>
+                                <button type="button" class="btn pt-0 shadow-none" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdroppass"><i
+                                        class="fa-solid fa-pen fs-4 text-secondary"></i></button>
+                            </div>
+                        </div>
+                        <div class="vr p-0 acc-table d-none d-md-block" style="width: 2px;"></div>
+                        <hr class="mb-5 acc-table d-block d-md-none" style="height: 2px;">
+                        <div class="col-md-6 col-12">
+                            <div class="d-flex flex-row justify-content-between">
+                                <figure class="">
+                                    <figcaption class="blockquote-footer fw-bold">
+                                        کد ملی
+                                    </figcaption>
+                                    <blockquote class="blockquote fw-bold">
+                                        <p>0670581222</p>
+                                    </blockquote>
+                                </figure>
+                                <button type="button" class="btn pt-0 shadow-none" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop"><i
+                                        class="fa-solid fa-pen fs-4 text-secondary"></i></button>
+                            </div>
+                            <hr class="mb-5 acc-table" style="height: 2px;">
+                            <div class="d-flex flex-row justify-content-between mt-4 h-25">
+                                <figure class="">
+                                    <figcaption class="blockquote-footer fw-bold">
+                                        ایمیل
+                                    </figcaption>
+                                    <blockquote class="blockquote fw-bold ">
+                                        <p style="overflow-wrap: break-word"></p>
+                                    </blockquote>
+                                </figure>
+                                <button type="button" class="btn pt-0 shadow-none" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdropemail"><i
+                                        class="fa-solid fa-pen fs-4 text-secondary"></i></button>
+                            </div>
+                            <hr class="mb-5 acc-table" style="height: 2px;">
+                            <div class="d-flex flex-row justify-content-between mt-4">
+                                <figure class="">
+                                    <figcaption class="blockquote-footer fw-bold">
+                                        تاریخ تولد
+                                    </figcaption>
+                                    <blockquote class="blockquote fw-bold">
+                                        <p></p>
+                                    </blockquote>
+                                </figure>
+                                <button type="button" class="btn pt-0 shadow-none" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdropbirthday"><i
+                                        class="fa-solid fa-pen fs-4 text-secondary"></i></button>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="staticBackdrop" data-bs-keyboard="false" tabindex="-1"
+                             aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="background-color: rgb(255, 240, 242);">
+                                        <h5 class="modal-title" id="staticBackdropLabel">ثبت اطلاعات شناسایی</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>لطفا اطلاعات شناسایی خود را وارد کنید. نام و نام خانوادگی شما باید با
+                                            اطلاعاتی که وارد می‌کنید همخوانی داشته باشند.</p>
+                                        <div class="row">
+                                            <form method="post">{% csrf_token %}
+                                                <label for="inputEmail2" class="form-label">نام خانوادگی</label>
+                                                {{ user_form.full_name }}
+                                                {{ user_form.short_name }}
+                                                {{ user_form.national_code }}
+                                                <button type="submit" id="liveToastBtn"
+                                                        class="btn btn-primary footer-sign">ثبت
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer" style="background-color: rgb(255, 240, 242);">
+                                        <button type="submit" class="btn btn-primary footer-sign">ثبت</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="staticBackdropphone" data-bs-keyboard="false" tabindex="-1"
+                             aria-labelledby="staticBackdropLabel4" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="background-color: rgb(255, 240, 242);">
+                                        <h5 class="modal-title" id="staticBackdropLabel4">شماره موبایل خود را وارد
+                                            کنید</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p></p>
+                                        <div class="row">
+                                            <div class="col-12 mt-3">
+                                                <label for="inputPhone" class="form-label">شماره موبایل</label>
+                                                <input type="text" class="form-control" aria-label="Last name"
+                                                       id="inputPhone">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer" style="background-color: rgb(255, 240, 242);">
+                                        <button type="button" class="btn btn-primary footer-sign">ثبت</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="staticBackdroppass" data-bs-keyboard="false" tabindex="-1"
+                             aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="background-color: rgb(255, 240, 242);">
+                                        <h5 class="modal-title" id="staticBackdropLabel1">تغییر رمز عبور</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p></p>
+                                        <div class="row">
+                                            <div class="col-12 mt-3">
+                                                <label for="inputPassword1" class="form-label">رمز عبور فعلی</label>
+                                                <input type="text" class="form-control" aria-label="Last name"
+                                                       id="inputPassword1">
+                                                <a href="" class="mt-1">بازیابی رمز عبور</a>
+                                            </div>
+                                            <p class="mt-5">رمز عبور شما باید حداقل 8 کاراکتر باشد <span
+                                                    class="text-danger">*</span></p>
+                                            <div class="col-12 mt-3">
+                                                <label for="inputPassword2" class="form-label">رمز عبور جدید</label>
+                                                <input type="text" class="form-control" aria-label="Last name"
+                                                       id="inputPassword2">
+                                            </div>
+                                            <div class="col-12 mt-3">
+                                                <label for="inputPassword3" class="form-label"> تکرار رمز عبور
+                                                    جدید</label>
+                                                <input type="text" class="form-control" aria-label="Last name"
+                                                       id="inputPassword3">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer" style="background-color: rgb(255, 240, 242);">
+                                        <button type="button" class="btn btn-primary footer-sign">ثبت</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="staticBackdropemail" data-bs-keyboard="false" tabindex="-1"
+                             aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="background-color: rgb(255, 240, 242);">
+                                        <h5 class="modal-title" id="staticBackdropLabel2">پست الکترونیک خود را وارد
+                                            کنید</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p></p>
+                                        <div class="row">
+                                            <form method="post">{% csrf_token %}
+                                                <label for="inputEmail2" class="form-label">adress</label>
+                                                {{ user_address.address_line }}
+                                                <button type="submit" id="liveToastBtn"
+                                                        class="btn btn-primary footer-sign">ثبت
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer" style="background-color: rgb(255, 240, 242);">
+                                        <button type="button" class="btn btn-primary footer-sign">ثبت</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="staticBackdropbirthday" data-bs-keyboard="false" tabindex="-1"
+                             aria-labelledby="staticBackdropLabel3" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="background-color: rgb(255, 240, 242);">
+                                        <h5 class="modal-title" id="staticBackdropLabel3">تاریخ تولد خود را وارد
+                                            کنید</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p></p>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label for="inputState" class="form-label">روز</label>
+                                                <select id="inputState" class="form-select">
+                                                    <option selected>1</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                    <option>6</option>
+                                                    <option>7</option>
+                                                    <option>8</option>
+                                                    <option>9</option>
+                                                    <option>10</option>
+                                                    <option>11</option>
+                                                    <option>12</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="inputState" class="form-label">ماه </label>
+                                                <select id="inputState" class="form-select">
+                                                    <option selected>فروردین</option>
+                                                    <option>اردیبهشت</option>
+                                                    <option>خرداد</option>
+                                                    <option>تیر</option>
+                                                    <option>مرداد</option>
+                                                    <option>شهریور</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="inputState" class="form-label">سال</label>
+                                                <select id="inputState" class="form-select">
+                                                    <option selected>1401</option>
+                                                    <option>1400</option>
+                                                    <option>1399</option>
+                                                    <option>1398</option>
+                                                    <option>1397</option>
+                                                    <option>1396</option>
+                                                    <option>1395</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer" style="background-color: rgb(255, 240, 242);">
+                                        <button type="button" class="btn btn-primary footer-sign">ثبت</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var divs = ["Section1", "Section2", "Section3", "Section4"];
+        var visibleId = null;
+
+        function show(id) {
+            if (visibleId !== id) {
+                visibleId = id;
+            }
+            hide();
+        }
+
+        function hide() {
+            var div, i, id;
+            for (i = 0; i < divs.length; i++) {
+                id = divs[i];
+                div = document.getElementById(id);
+                if (visibleId === id) {
+                    div.style.display = "block";
+                } else {
+                    div.style.display = "none";
+                }
+            }
+        }
+
+        var btnContainer = document.getElementById("Bot-link");
+        var btns = btnContainer.getElementsByClassName("product-tabs");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+        var myModal = document.getElementById('myModal')
+        var myInput = document.getElementById('myInput')
+        myModal.addEventListener('shown.bs.modal', function () {
+            myInput.focus()
+        })
+    </script>
+{% endblock %}

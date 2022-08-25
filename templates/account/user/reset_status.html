@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}status password{% endblock %}
+{% block content %}
+    <div style="height: 100px">
+        {% if 'email' in request.get_full_path %}
+            <p style="font-size: 10px">check your email</p>
+        {% endif %}
+        {% if 'complete' in request.get_full_path %}
+            <p style="font-size: 10px">check email</p>
+        {% endif %}
+    </div>
+{% endblock %}

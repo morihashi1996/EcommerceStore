@@ -7,7 +7,7 @@ from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
-from account.forms import RegistrationForm, UserEditFrom
+from account.forms import RegistrationForm, UserEditFrom, UserAddressFrom
 from account.models import UserBase
 from account.token import account_activation_token
 import threading
@@ -35,11 +35,6 @@ def send_action_email(user, request):
                          from_email=settings.EMAIL_FROM_USER,
                          to=[user.email], )
     EmailThread(email).start()
-
-
-@login_required
-def dashboard(request):
-    return render(request, 'account/user/dashboard.html')
 
 
 def account_register(request):
@@ -77,10 +72,12 @@ def account_activate(request, uidb64, token):
 @login_required
 def edit_details(request):
     if request.method == 'POST':
-        user_form = UserEditFrom(isinstance=request.user, data=request.POST)
+        user_form = UserEditFrom(request.POST, instance=request.user)
         if user_form.is_valid():
             user_form.save()
-        else:
-            user_form = UserEditFrom(instance=request.user)
-
-        return render(request, 'account/user/edit_details.html', {'user_form': user_form})
+        user_address = UserAddressFrom(request.POST, instance=request.user)
+        if user_address.is_valid():
+            user_address.save()
+    user_form = UserEditFrom(instance=request.user)
+    user_address = UserAddressFrom(instance=request.user)
+    return render(request, 'account/user/dashboard.html', {'user_form': user_form, 'user_address': user_address})

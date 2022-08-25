@@ -32,7 +32,7 @@ class RegistrationForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['full_name'].widget.attrs.update(
-            {'class': 'name', 'id': 'name',})
+            {'class': 'name', 'id': 'name', })
         self.fields['email'].widget.attrs.update(
             {'class': 'email', 'id': 'email', })
         self.fields['password'].widget.attrs.update(
@@ -43,30 +43,55 @@ class RegistrationForm(forms.ModelForm):
 
 class UserLoginForm(AuthenticationForm):
     email = forms.CharField(widget=forms.TextInput(
-        attrs={'class': '',}
+        attrs={'class': '', }
     ))
     password = forms.CharField(widget=forms.PasswordInput(
-        attrs={'class': '',}
+        attrs={'class': '', }
     ))
 
 
 class UserEditFrom(forms.ModelForm):
     full_name = forms.CharField(
-        label='full name', min_length=4, max_length=50, widget=forms.TextInput(
-            attrs={'class': {}, 'placeholder': 'full name'}
+        min_length=4, max_length=150, widget=forms.TextInput(
+            attrs={'class': {}, 'placeholder': 'full'}
         ))
-    email = forms.EmailField(
-        label='Email(can not be changed', max_length=150, widget=forms.TextInput(
-            attrs={'class': '', 'placeholder': 'email', 'readonly': 'readonly'}
+    short_name = forms.CharField(
+        min_length=1, max_length=150, widget=forms.TextInput(
+            attrs={'class': {}, 'placeholder': 'name'}
         ))
+    national_code = forms.CharField(
+        min_length=9, max_length=10, widget=forms.TextInput(
+            attrs={'class': {}, 'placeholder': 'code'}
+        ))
+    # email = forms.EmailField(
+    #     label='Email(can not be changed', max_length=150, widget=forms.TextInput(
+    #         attrs={'class': '', 'readonly': 'readonly'}
+    #     ))
 
     class Meta:
         model = UserBase
-        fields = ('full_name',)
+        fields = ('full_name', 'short_name', 'national_code')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['full_name'].required = True
+        self.fields['short_name'].required = False
+        self.fields['national_code'].required = False
+
+
+class UserAddressFrom(forms.ModelForm):
+    address_line = forms.CharField(
+        min_length=4, max_length=150, widget=forms.TextInput(
+            attrs={'class': {}, }
+        ))
+
+    class Meta:
+        model = UserBase
+        fields = ('address_line',)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['address_line'].required = True
 
 
 class PwdResetForm(PasswordResetForm):
