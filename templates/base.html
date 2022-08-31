@@ -103,16 +103,16 @@
                     title="سبد خرید">
                     <a href="{% url "basket:basket_summary" %}" class="nav-i basket py-2 position-relative"><i
                             class="fas fa-shopping-bag"></i>
-                        {% with total_qty=basket|length %}
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger fs-6"
-                                  id="basket-qty">
-                                {% if total_qty > 0 %}
-                                    {{ total_qty }}
-                                {% else %}
-                                    0
-                                {% endif %}
-                            </span>
-                        {% endwith %}
+{#                        {% with total_qty=basket|length %}#}
+{#                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger fs-6"#}
+{#                                  id="basket-qty">#}
+{#                                {% if total_qty > 0 %}#}
+{#                                    {{ total_qty }}#}
+{#                                {% else %}#}
+{#                                    0#}
+{#                                {% endif %}#}
+{#                            </span>#}
+{#                        {% endwith %}#}
                     </a>
                     <div class="basket-div bg-white overflow-auto">
                         <button class="btn btn-lg  sticky-top w-100 text-center basket-top"> go to bask</button>
@@ -140,7 +140,7 @@
                     data-bs-placement="top" title="جستجو">
                     <!-- <button class="nav-i p-0 col-2 btn-search" onclick="searchShow()"><i class="fas fa-search"></i></button> -->
                     <!-- <input type="search" class="form-control col input-search" placeholder="Search..." aria-label="Search"> -->
-                    <a href="#" class="nav-i col-2 nav-search"><i class="fas fa-search mt-2"></i></a>
+                    <a class="nav-i col-2 nav-search"><i class="fas fa-search mt-2"></i></a>
                     <label>
                         <input type="text" class="input-search position-absolute " placeholder="">
                     </label>
