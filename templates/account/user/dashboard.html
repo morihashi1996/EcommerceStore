@@ -42,29 +42,85 @@
                         </div>
                         <br>
                         <div id="Section1">
-                            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
-                                <div class="col product-item px-2 my-4">
-                                    <div class="product-img">
-                                        <img class="img-fluid d-block mx-auto" src="Images/collagen-water-bomb-.jpg"
-                                             alt="">
-                                        <img class="img-fluid mx-auto overlay" src="Images/vitamin-c--water-bomb--.jpg"
-                                             alt="">
-                                        <div class="row btns w-100 mx-auto text-center">
-                                            <button type="button" class="col-12 product-bt">
-                                                <i class="">اضافه به سبد خرید</i>
-                                            </button>
+                            <div class="accordion accordion-flush" id="accordionFlushExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                                                aria-expanded="false" aria-controls="flush-collapseOne">
+                                            <table class="table">
+                                                <thead>
+                                                <tr>
+                                                    <th scope="col">First</th>
+                                                    <th scope="col">Last</th>
+                                                    <th scope="col">Handle</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    {% for order in orders %}
+                                                        <td>{{ order.full_name }}</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                    {% endfor %}
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                         aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
+                                                {% for item in order.items.all %}
+                                                    <div class="col product-item px-2 my-4">
+                                                    <div class="product-img">
+                                                        <img class="img-fluid d-block mx-auto"
+                                                             src="Images/collagen-water-bomb-.jpg"
+                                                             alt="">
+                                                        <img class="img-fluid mx-auto overlay"
+                                                             src="Images/vitamin-c--water-bomb--.jpg"
+                                                             alt="">
+                                                        <div class="row btns w-100 mx-auto text-center">
+                                                            <button type="button" class="col-12 product-bt">
+                                                                <i class="">اضافه به سبد خرید</i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-info p-3 text-center">
+                                                        <span class="product-type ">شامپو مخصوص موهای خشک</span>
+                                                        <div class="row my-2">
+                                                            <a href="#"
+                                                               class="col-6 text-decoration-none product-brand">برند </a>
+                                                            <span class="col-6 product-v ">{{ item.product.price }}</span>
+                                                        </div>
+                                                        <div class="row ">
+                                                            <span class="product-newprice mt-1 w-50 col align-self-start">70.000 تومان</span>
+                                                            <span class="badge rounded btn-danger w-25 col align-self-center">20%</span>
+                                                            <s class="product-oldprice mt-1 w-50 col align-self-end">70.000
+                                                                تومان</s>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="product-info p-3 text-center">
-                                        <span class="product-type ">شامپو مخصوص موهای خشک</span>
-                                        <div class="row my-2">
-                                            <a href="#" class="col-6 text-decoration-none product-brand">برند </a>
-                                            <span class="col-6 product-v ">350ml</span>
-                                        </div>
-                                        <div class="row ">
-                                            <span class="product-newprice mt-1 w-50 col align-self-start">70.000 تومان</span>
-                                            <span class="badge rounded btn-danger w-25 col align-self-center">20%</span>
-                                            <s class="product-oldprice mt-1 w-50 col align-self-end">70.000 تومان</s>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingTwo">
+                                        <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
+                                                aria-expanded="false" aria-controls="flush-collapseTwo">
+                                            Accordion Item #2
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                         aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">Placeholder content for this accordion, which is
+                                            intended to demonstrate the <code>.accordion-flush</code> class. This is the
+                                            second item's accordion body. Let's imagine this being filled with some
+                                            actual content.
                                         </div>
                                     </div>
                                 </div>

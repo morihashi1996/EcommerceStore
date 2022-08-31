@@ -26,7 +26,7 @@ SECRET_KEY = secret.Secretkey
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 # Application definition
 
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'shop',
     'basket',
     'payment',
+    'orders',
 ]
 
 MIDDLEWARE = [
@@ -138,6 +139,8 @@ AUTH_USER_MODEL = 'account.UserBase'
 LOGIN_REDIRECT_URL = '/account/dashboard'
 LOGIN_URL = '/account/login/'
 
+BASKET_SESSION_ID = 'sky'
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_FROM_USER = secret.Host_user
 EMAIL_HOST = 'smtp.gmail.com'
@@ -145,3 +148,5 @@ EMAIL_HOST_USER = secret.Host_user
 EMAIL_HOST_PASSWORD = secret.Host_pass
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
+
+STRIPE_ENDPOINT_SECRET = 'whsec_5f229e5030d448f9f23798eea56fa12012b5ad52e7dd8c53fca01472315c360b'

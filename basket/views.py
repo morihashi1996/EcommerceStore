@@ -21,6 +21,7 @@ def basket_add(request):
         # except:
         #   raise Http404
         basketqty = basket.__len__()
+        print(basketqty)
         basket.add(product=product, qty=product_qty)
         response = JsonResponse({'qty': basketqty})
         return response

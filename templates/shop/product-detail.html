@@ -10,7 +10,7 @@
                     <label for="img-tab-1" style="background-image: url({{ product.image.url }});"></label>
                     <img src="{{ product.image.url }}" border="0">
                     <input type="radio" name="select" id="img-tab-2">
-                    <label for="img-tab-2" style="background-image: url(Images/vitamin-c--water-bomb--.jpg);"></label>
+                    <label for="img-tab-2" style=""></label>
                     <img src="Images/vitamin-c--water-bomb--.jpg" border="0">
                     <input type="radio" name="select" id="img-tab-3">
                     <label for="img-tab-3"
@@ -166,13 +166,13 @@
                     </div>
                 </div>
                 <div class="mt-auto top-0 d-flex flex-row align-items-stretch justify-content-evenly">
-{#                    <div class="num-block skin-1 my-auto p-3 border border-3 border-danger rounded-2">#}
-{#                        <div class="num-in">#}
-{#                            <span class="minus dis"></span>#}
-{#                            <input type="text" class="in-num" value="1" readonly="">#}
-{#                            <span class="plus"></span>#}
-{#                        </div>#}
-{#                    </div>#}
+                    {#                    <div class="num-block skin-1 my-auto p-3 border border-3 border-danger rounded-2">#}
+                    {#                        <div class="num-in">#}
+                    {#                            <span class="minus dis"></span>#}
+                    {#                            <input type="text" class="in-num" value="1" readonly="">#}
+                    {#                            <span class="plus"></span>#}
+                    {#                        </div>#}
+                    {#                    </div>#}
                     <div class="num-block skin-1 my-auto p-3 border border-3 border-danger rounded-2">
                         <label for="select">qty</label>
                         <select id="select">
@@ -182,7 +182,9 @@
                             <option value="4">4</option>
                         </select>
                     </div>
-                    <button class="btn btn-outline-light btn-danger my-1 makeup-but p-3" type="button" id="add-to-bask" value="{{ product.id }}">اضافه به سبد خرید</button>
+                    <button class="btn btn-outline-light btn-danger my-1 makeup-but p-3" type="button" id="add-to-bask"
+                            value="{{ product.id }}">اضافه به سبد خرید
+                    </button>
                 </div>
             </div>
         </div>
@@ -302,48 +304,52 @@
     <script type="text/javascript">
         var divs = ["Section1", "Section2", "Section3", "Section4"];
         var visibleId = null;
+
         function show(id) {
-            if(visibleId !== id) {
+            if (visibleId !== id) {
                 visibleId = id;
             }
-            hide();
         }
+
         function hide() {
             var div, i, id;
-                for(i = 0; i < divs.length; i++) {
-                    id = divs[i];
-                    div = document.getElementById(id);
-                        if(visibleId === id) {
-                        div.style.display = "block";
+            for (i = 0; i < divs.length; i++) {
+                id = divs[i];
+                div = document.getElementById(id);
+                if (visibleId === id) {
+                    div.style.display = "block";
                 } else {
                     div.style.display = "none";
                 }
             }
         }
+
         var btnContainer = document.getElementById("Bot-link");
         var btns = btnContainer.getElementsByClassName("product-tabs");
         for (var i = 0; i < btns.length; i++) {
-            btns[i].addEventListener("click", function() {
+            btns[i].addEventListener("click", function () {
                 var current = document.getElementsByClassName("active");
                 current[0].className = current[0].className.replace(" active", "");
                 this.className += " active";
             });
         }
-        $(document).on('click','#add-to-bask', function (e){
+        $(document).on('click', '#add-to-bask', function (e) {
             e.preventDefault();
             $.ajax({
-                type:'POST',
+                type: 'POST',
                 url: '{% url "basket:basket_add" %}',
-                data:{
-                    productid : $('#add-to-bask').val(),
+                data: {
+                    productid: $('#add-to-bask').val(),
                     productqty: $('#select option:selected').text(),
                     csrfmiddlewaretoken: '{{csrf_token}}',
-                    action:'post'
+                    action: 'post'
                 },
-                success:function (json){
+                success: function (json) {
                     document.getElementById("basket-qty").innerHTML = json.qty
+                    console.log(this.productqty)
                 },
-                error : function (xhr, errmsg, err) {}
+                error: function (xhr, errmsg, err) {
+                }
             });
         })
     </script>
