@@ -20,9 +20,8 @@ def basket_add(request):
         #   product = Product.objects.get(id=product_id)
         # except:
         #   raise Http404
-        basketqty = basket.__len__()
-        print(basketqty)
         basket.add(product=product, qty=product_qty)
+        basketqty = basket.__len__()
         response = JsonResponse({'qty': basketqty})
         return response
 

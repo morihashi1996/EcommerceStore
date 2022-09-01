@@ -1,14 +1,13 @@
 from shop.models import Product
 from decimal import Decimal
-from django.conf import settings
 
 
-class Basket(object):
+class Basket:
     def __init__(self, request):
         self.session = request.session
-        basket = self.session.get(settings.BASKET_SESSION_ID)
+        basket = self.session.get('skey')
         if 'skey' not in request.session:
-            basket = self.session[settings.BASKET_SESSION_ID] = {}
+            basket = self.session['skey'] = {}
         self.basket = basket
 
     def add(self, product, qty):
@@ -50,6 +49,6 @@ class Basket(object):
             self.basket[product_id]['qty'] = qty
         self.session.modified = True
 
-    def clear(self):
-        del self.session[settings.BASKET_SESSION_ID]
-        self.session.modified = True
+    # def clear(self):
+    #     del self.session['sky']
+    #     self.session.modified = True
