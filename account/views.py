@@ -11,7 +11,7 @@ from account.forms import RegistrationForm, UserEditFrom, UserAddressFrom
 from account.models import UserBase
 from account.token import account_activation_token
 import threading
-# from orders.views import user_orders
+from orders.views import user_orders
 
 
 class EmailThread(threading.Thread):
@@ -81,6 +81,6 @@ def edit_details(request):
             user_address.save()
     user_form = UserEditFrom(instance=request.user)
     user_address = UserAddressFrom(instance=request.user)
-    # orders = user_orders(request)
+    orders = user_orders(request)
     return render(request, 'account/user/dashboard.html',
-                  {'user_form': user_form, 'user_address': user_address})
+                  {'user_form': user_form, 'user_address': user_address, 'orders': orders})

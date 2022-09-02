@@ -3,7 +3,7 @@ var stripe = Stripe('pk_test_51LaXfIAf88l3syRFRFSUGwugIy3JEx7eJDdUPBEnKvgjaKujcu
 var elem = document.getElementById('submit');
 clientsecret = elem.getAttribute('data-secret');
 
-// Set up Stripe.js and Elements to use in checkout form
+// Set up index.js and Elements to use in checkout form
 var elements = stripe.elements();
 var style = {
     base: {
@@ -37,6 +37,7 @@ form.addEventListener('submit', function (ev) {
     var custAdd = document.getElementById("custAdd").value;
     var custAdd2 = document.getElementById("custAdd2").value;
     var postCode = document.getElementById("postCode").value;
+
 
     stripe.confirmCardPayment(clientsecret, {
         payment_method: {

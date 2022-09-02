@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'shop',
     'basket',
     'payment',
+    'orders',
 ]
 
 MIDDLEWARE = [
@@ -148,4 +149,4 @@ EMAIL_HOST_PASSWORD = secret.Host_pass
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 
-STRIPE_ENDPOINT_SECRET = 'whsec_5f229e5030d448f9f23798eea56fa12012b5ad52e7dd8c53fca01472315c360b'
+STRIPE_ENDPOINT_SECRET = 'whsec_5f229e5030d448f9f23798eea56fa12012b5ad52e7dd8c53fca01472315c360b '

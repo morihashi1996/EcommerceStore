@@ -171,3 +171,10 @@ jQuery(document).ready(function () {
         jQuery('.veen .wrapper').removeClass('move');
     });
 });
+const toggleBtns = document.querySelectorAll('.faq-toggle');
+
+toggleBtns.forEach(toggleBtn => {
+    toggleBtn.addEventListener('click', () => {
+        toggleBtn.parentNode.classList.toggle('active')
+    })
+});
